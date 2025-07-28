@@ -2,8 +2,12 @@
 import 'package:flutter/material.dart';
 import 'SplashScreen.dart';
 
-void main() {
-  runApp(ZoneApp());
+import 'package:rive/rive.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  runApp( ZoneApp());
 }
 
 class ZoneApp extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'SplashScreen2.dart';
-
+import 'package:rive/rive.dart';
 class SplashScreen extends StatefulWidget {
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -32,10 +32,11 @@ class _SplashScreenState extends State<SplashScreen> {
                 SizedBox(
                   height: 140,
                   width: 140,
-                  child: Image.asset(
-                    'assets/Logo1.png', 
-                    fit: BoxFit.contain,
-                  ),
+                  child:  RiveAnimation.asset(
+                        'assets/logo.riv',
+                        fit: BoxFit.contain,
+                     stateMachines: const ['main'],
+  ),
                 ),
                 SizedBox(height: 48),
                 Text(
