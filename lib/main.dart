@@ -1,20 +1,26 @@
 
+import 'package:demo_app/GetStartedScreen.dart';
+import 'package:demo_app/GoalsScreen.dart';
+import 'package:demo_app/HomeScreen.dart';
+import 'package:demo_app/LoginScreen.dart';
+import 'package:demo_app/SignUpScreen.dart';
+import 'package:demo_app/SplashScreen2.dart';
 import 'package:flutter/material.dart';
 import 'SplashScreen.dart';
 
-import 'package:rive/rive.dart';
+
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  runApp( ZoneApp());
+  runApp( AthliCoder());
 }
 
-class ZoneApp extends StatelessWidget {
+class AthliCoder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Zone Entry',
+      title: 'AthliCoder',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         brightness: Brightness.dark,
@@ -22,7 +28,16 @@ class ZoneApp extends StatelessWidget {
         fontFamily: 'RobotoMono',
       ),
      
-      home: SplashScreen(),
-    );
+     routes: {
+        '/': (context) => SplashScreen(),
+        '/splash2': (context) => SplashScreen2(),
+        '/signup': (context) => SignUpScreen(),
+        '/login': (context) => LoginScreen(),
+        '/goals': (context) => const GoalsScreen(),
+        '/GetStarted': (context) => GetStartedScreen(),
+        '/home': (context) => const HomeScreen(),
+        
+      },
+    ); 
   }
 }
