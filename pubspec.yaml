@@ -9,8 +9,16 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  
+  # UI and Asset Packages
   rive: ^0.13.20
   cupertino_icons: ^1.0.2
+
+  # Firebase Packages (Corrected and Updated)
+  firebase_core: ^2.32.0      # Essential for all Firebase services
+  firebase_auth: ^4.20.0      # For user authentication
+  cloud_firestore: ^4.17.5  # For the Firestore database
+
 
 dev_dependencies:
   flutter_test:
@@ -19,7 +27,8 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  # Assets (Corrected)
+  # Including the folder is enough to include all files within it.
   assets:
     - assets/
-    - assets/Blinking.riv
-    - assets/logo.riv

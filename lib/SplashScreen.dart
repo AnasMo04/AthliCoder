@@ -36,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
                         'assets/logo.riv',
                         fit: BoxFit.contain,
                      stateMachines: const ['main'],
-  ),
+                          ),
                 ),
                 SizedBox(height: 48),
                 Text(
@@ -55,7 +55,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.orange[700],
-                      foregroundColor: Colors.black,
+                      foregroundColor: Colors.white,
                       padding: EdgeInsets.symmetric(vertical: 16),
                       textStyle: TextStyle(
                         fontWeight: FontWeight.bold,

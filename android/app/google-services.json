@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "11665655714",
+    "project_id": "athlicoder-da282",
+    "storage_bucket": "athlicoder-da282.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:11665655714:android:0fed8fdb39072a74ec14fb",
+        "android_client_info": {
+          "package_name": "com.example.demo_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOYseZK9KbF3yKthI20mQMpwd-LQrHm5A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

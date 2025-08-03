@@ -1,5 +1,6 @@
 import 'dart:async'; // Import the async library for Timer
 import 'package:flutter/material.dart';
+import 'package:rive/rive.dart';
 
 class SplashScreen2 extends StatefulWidget {
 
@@ -15,7 +16,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
   void initState() {
     super.initState();
   
-    Timer(const Duration(seconds: 5), () {
+    Timer(const Duration(seconds: 10), () {
      
       Navigator.of(context).pushReplacementNamed('/signup');
     });
@@ -32,17 +33,18 @@ class _SplashScreen2State extends State<SplashScreen2> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(
-                  height: 140,
-                  width: 140,
-                  child: Image.asset(
-                    'assets/Logo1.png',
-                    fit: BoxFit.contain,
-                  ),
+                SizedBox( 
+                  height: 300,
+                  width: 300,
+                  child: RiveAnimation.asset(
+                        'assets/covering_hoodie_pro.riv',
+                        fit: BoxFit.contain,
+                     stateMachines: const ['State Machine 1'],
+                          ),
                 ),
-                SizedBox(height: 48),
+                SizedBox(height: 5),
                 CircularProgressIndicator(
-                  color: Colors.orange[700],
+                  color: const Color.fromARGB(255, 226, 133, 40),
                   strokeWidth: 5,
                 ),
                 SizedBox(height: 36),
@@ -50,7 +52,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
                   'Entering\nthe Zone...',
                   style: TextStyle(
                     fontSize: 32,
-                    color: Colors.orange[700],
+                    color:  const Color.fromARGB(255, 226, 133, 40),
                     fontWeight: FontWeight.bold,
                     fontFamily: 'RobotoMono',
                     height: 1.2,

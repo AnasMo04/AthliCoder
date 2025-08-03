@@ -13,11 +13,11 @@ class SignUpScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 40.0),
-            // The main column is now aligned to the start (left)
+           
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start, // 1. Align content to the left
+              crossAxisAlignment: CrossAxisAlignment.start, 
               children: [
-                // Centering only the top logo and title row
+                
                 Center(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -25,7 +25,7 @@ class SignUpScreen extends StatelessWidget {
                     children: [
                       Image.asset(
                         'assets/Logo1.png',
-                        height: 100, // 2. Made the logo much bigger
+                        height: 100, 
                       ),
                       const SizedBox(width: 12),
                       Text(
@@ -33,31 +33,31 @@ class SignUpScreen extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 28,
                           fontWeight: FontWeight.bold,
-                           color: Colors.grey[350], // 4. Color corrected to white
+                           color: Colors.grey[350], 
                         ),
                       ),
                     ],
                   ),
                 ),
-                const SizedBox(height: 60), // 3. Adjusted spacing
+                const SizedBox(height: 60), 
                 Text(
                   'Join the\nAthliCoder \nCommunity',
                   style: TextStyle(
                     fontSize: 40,
                     fontWeight: FontWeight.bold,
-                     color: Colors.grey[350], // 4. Color corrected to white
+                     color: Colors.grey[350], 
                     height: 1.2,
                   ),
                 ),
-                const SizedBox(height: 35), // 3. Adjusted spacing
+                const SizedBox(height: 35),
                 TextField(
                   decoration: InputDecoration(
                     labelText: 'Name',
                     labelStyle: TextStyle(color: Colors.grey[400]),
                     filled: true,
-                    fillColor: const Color(0xFF1F1F1F), // Slightly lighter grey for fields
+                    fillColor: const Color(0xFF1F1F1F), 
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12), // Slightly more rounded corners
+                      borderRadius: BorderRadius.circular(12), 
                       borderSide: BorderSide.none,
                     ),
                   ),
@@ -93,8 +93,7 @@ class SignUpScreen extends StatelessWidget {
                   ),
                   style: const TextStyle(color: Colors.white),
                 ),
-                const SizedBox(height: 35), // 3. Adjusted spacing
-                // Stretched button
+                const SizedBox(height: 35), 
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
@@ -118,8 +117,7 @@ class SignUpScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 25), // 3. Adjusted spacing
-                // Centering the bottom text
+                const SizedBox(height: 25), 
                 Center(
                   child: RichText(
                     text: TextSpan(

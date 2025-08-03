@@ -5,16 +5,23 @@ import 'package:demo_app/HomeScreen.dart';
 import 'package:demo_app/LoginScreen.dart';
 import 'package:demo_app/SignUpScreen.dart';
 import 'package:demo_app/SplashScreen2.dart';
+import 'package:demo_app/firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'SplashScreen.dart';
 
 
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
 
+Future<void> main() async {
+  
+  WidgetsFlutterBinding.ensureInitialized();
+    
+    await Firebase.initializeApp(
+  options: DefaultFirebaseOptions.currentPlatform,
+);
   runApp( AthliCoder());
-}
+} 
 
 class AthliCoder extends StatelessWidget {
   @override
@@ -33,9 +40,9 @@ class AthliCoder extends StatelessWidget {
         '/splash2': (context) => SplashScreen2(),
         '/signup': (context) => SignUpScreen(),
         '/login': (context) => LoginScreen(),
-        '/goals': (context) => const GoalsScreen(),
+        '/goals': (context) =>  GoalsScreen(),
         '/GetStarted': (context) => GetStartedScreen(),
-        '/home': (context) => const HomeScreen(),
+        '/home': (context) =>  HomeScreen(),
         
       },
     ); 

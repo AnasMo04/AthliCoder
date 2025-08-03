@@ -8,16 +8,15 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _selectedIndex = 0; // For Bottom Navigation Bar
+  int _selectedIndex = 0; 
 
-  // Dummy state for tasks
   bool isWorkoutCompleted = false;
   bool isCodingCompleted = false;
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
-      // Here you would navigate to other pages like Profile, Achievements, etc.
+  
     });
   }
 
@@ -35,17 +34,15 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Header (Consistent with other screens)
+                
                 Center(
                   child: Image.asset('assets/Logo1.png', height: 80),
                 ),
                 const SizedBox(height: 24),
 
-                // User Stats Card (Idea from QuizZone)
                 _buildStatsCard(cardColor, orangeColor),
                 const SizedBox(height: 40),
-
-                // Daily Tasks Section
+   
                 const Text(
                   "Today's Mission",
                   style: TextStyle(
@@ -56,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 const SizedBox(height: 20),
 
-                // Workout Task
+            
                 _DailyTaskCard(
                   icon: Icons.fitness_center,
                   title: 'Morning Workout',
@@ -70,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 const SizedBox(height: 16),
                 
-                // Coding Task
+               
                 _DailyTaskCard(
                   icon: Icons.code,
                   title: 'Code Challenge',
