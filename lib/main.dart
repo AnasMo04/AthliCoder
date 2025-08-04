@@ -1,14 +1,15 @@
 
-import 'package:demo_app/GetStartedScreen.dart';
-import 'package:demo_app/GoalsScreen.dart';
-import 'package:demo_app/HomeScreen.dart';
-import 'package:demo_app/LoginScreen.dart';
-import 'package:demo_app/SignUpScreen.dart';
-import 'package:demo_app/SplashScreen2.dart';
+import 'package:demo_app/Presentation/Screens/GetStartedScreen.dart';
+import 'package:demo_app/Presentation/Screens/GoalsScreen.dart';
+import 'package:demo_app/Presentation/Screens/HomeScreen.dart';
+import 'package:demo_app/Presentation/Screens/Auth/LoginScreen.dart';
+import 'package:demo_app/Presentation/Screens/Auth/SignUpScreen.dart';
+import 'package:demo_app/Presentation/Screens/Splash/SplashScreen2.dart';
+import 'package:demo_app/Presentation/Screens/username_screen.dart';
 import 'package:demo_app/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'SplashScreen.dart';
+import 'Presentation/Screens/Splash/SplashScreen.dart';
 
 
 
@@ -42,6 +43,7 @@ class AthliCoder extends StatelessWidget {
         '/login': (context) => LoginScreen(),
         '/goals': (context) =>  GoalsScreen(),
         '/GetStarted': (context) => GetStartedScreen(),
+        '/username': (context) =>  UsernameScreen(),
         '/home': (context) =>  HomeScreen(),
         
       },

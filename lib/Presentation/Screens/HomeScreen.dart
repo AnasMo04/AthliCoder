@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -8,15 +9,32 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _selectedIndex = 0; 
-
+  int _selectedIndex = 0;
   bool isWorkoutCompleted = false;
   bool isCodingCompleted = false;
+
+  String _username = '';
+
+  @override
+  void initState() {
+    super.initState();
+    _loadUserData();
+  }
+
+  Future<void> _loadUserData() async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      if (mounted) {
+        setState(() {
+          _username = user.displayName ?? 'AthliCoder';
+        });
+      }
+    }
+  }
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
-  
     });
   }
 
@@ -34,15 +52,40 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                
-                Center(
-                  child: Image.asset('assets/Logo1.png', height: 80),
+                // --- الجزء العلوي: ترويسة الترحيب والشعار ---
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Hello,',
+                          style: TextStyle(
+                            color: Colors.grey[400],
+                            fontSize: 20,
+                          ),
+                        ),
+                        Text(
+                          _username.isNotEmpty ? _username : 'Loading...',
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 26,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Image.asset('assets/Logo1.png', height: 60),
+                  ],
                 ),
                 const SizedBox(height: 24),
 
+                // --- صندوق الإحصائيات ---
                 _buildStatsCard(cardColor, orangeColor),
                 const SizedBox(height: 40),
-   
+
                 const Text(
                   "Today's Mission",
                   style: TextStyle(
@@ -53,7 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 const SizedBox(height: 20),
 
-            
+                // --- بطاقات المهام اليومية ---
                 _DailyTaskCard(
                   icon: Icons.fitness_center,
                   title: 'Morning Workout',
@@ -66,8 +109,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                 ),
                 const SizedBox(height: 16),
-                
-               
                 _DailyTaskCard(
                   icon: Icons.code,
                   title: 'Code Challenge',
@@ -115,7 +156,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  // Helper widget for the user stats card
+  // دالة مساعدة لبناء صندوق الإحصائيات
   Widget _buildStatsCard(Color cardColor, Color orangeColor) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
@@ -134,7 +175,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  // Helper widget for each item in the stats card
+  // دالة مساعدة لبناء كل عنصر في صندوق الإحصائيات
   Widget _buildStatItem(String value, String label, [Color? valueColor]) {
     return Column(
       children: [
@@ -159,8 +200,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-
-// A custom widget for displaying a daily task
+// ويدجت مخصص لعرض بطاقة المهمة اليومية
 class _DailyTaskCard extends StatelessWidget {
   final IconData icon;
   final String title;
@@ -181,7 +221,7 @@ class _DailyTaskCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final Color orangeColor = Colors.orange[700]!;
     final Color cardColor = const Color(0xFF1F1F1F);
-    
+
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(

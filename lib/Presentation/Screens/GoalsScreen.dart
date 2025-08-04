@@ -90,8 +90,8 @@ class GoalsScreen extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
-                      // Navigate to the next screen (GetStartedScreen)
-                      Navigator.of(context).pushReplacementNamed('/GetStarted');
+                     
+                      Navigator.of(context).pushReplacementNamed('/username');
                     },
                     child: const Text(
                       'Continue',
